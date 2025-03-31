@@ -43,7 +43,7 @@ add_action('after_setup_theme', 'onemilliongale_setup');
 
 
 
-function onemilliongale_list_videogames($n)
+function onemilliongale_list_destinations($n)
 {
     $args = array(
         'post_type' => 'destinations',
@@ -76,3 +76,27 @@ function onemilliongale_list_videogames($n)
         wp_reset_postdata(); ?>
     </ul>
 <?php } ?>
+
+
+<?php //Define widgets
+function onemilliongale_widgets()
+{
+    register_sidebar(array(
+        'name' => 'Sidebar 1',
+        'id' => 'sidebar_1',
+        'before_widget' => '<div class="widget">',
+        'after_widget' => '</div>',
+        'before_title' => '<h3>',
+        'after_title' => '</h3>'
+    ));
+    register_sidebar(array(
+        'name' => 'Sidebar 2',
+        'id' => 'sidebar_2',
+        'before_widget' => '<div class="widget">',
+        'after_widget' => '</div>',
+        'before_title' => '<h3>',
+        'after_title' => '</h3>'
+    ));
+}
+//Hook: Fires after all default WordPress widgets have been registered
+add_action('widgets_init', 'onemilliongale_widgets'); ?>
