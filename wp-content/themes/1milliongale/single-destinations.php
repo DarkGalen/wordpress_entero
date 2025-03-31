@@ -18,6 +18,6 @@
             <p><?php the_content(); /*Content of your page*/ ?></p>
         <?php } ?>
     </div>
-    <?php get_sidebar(); ?>
+    <?php get_sidebar('destinations'); ?>
 </main>
 <?php get_footer() /*get the footer*/ ?>

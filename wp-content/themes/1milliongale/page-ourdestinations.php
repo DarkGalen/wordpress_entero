@@ -6,11 +6,11 @@
 <?php get_header(); /*get the header*/ ?>
 <main class="container nosidebar">
     <div class="main-content">
-        <p> Prueba de que estas en page-ourdestinations</p>
+        <p> Prueba de que estas en page-ourdestinationsss</p>
         <?php while (have_posts()) {
             the_post(); /*initialise WordPress Loop*/ ?>
             <h1><?php the_title(); /*Title of your page*/ ?></h1>
-            
+            <p><?php the_content(); /*Content of your page*/ ?></p>
         <?php } ?>
         <?php onemilliongale_list_destinations(10); ?>
     </div>
