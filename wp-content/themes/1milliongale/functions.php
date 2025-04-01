@@ -13,15 +13,18 @@ add_action('init', 'onemilliongale_menus');
 function onemilliongale_scripts_styles()
 {
     //Descriptive name, file path, dependences, version
-    wp_enqueue_style('normalize', get_template_directory_uri() . '
-    /css/normalize.css', array(), '8.0.1');
-    wp_enqueue_style('googleFont', 'https://fonts.googleapis.com/
-    css?family=Open+Sans|Oswald|PT+Sans&display=swap', array(), '
-    1.0.0');
-    wp_enqueue_style('style', get_stylesheet_uri(), array(
-        'normalize',
-        'googleFont'
-    ), '1.0.0');
+    wp_enqueue_style('googleFont', 'https://fonts.googleapis.com/css?family=Open+Sans|Oswald|PT+Sans&display=swap', array(), '1.0.0');
+    wp_enqueue_style('normalize', get_template_directory_uri() . '/css/normalize.css', array(), '8.0.1');
+    if (is_page('photogallery')) {
+        wp_enqueue_style('lightboxCSS', get_template_directory_uri() . '/css/lightbox.min.css', array(), '2.11.0');
+    }
+    wp_enqueue_style('style', get_stylesheet_uri(), array('normalize', 'googleFont'), '1.0.0');
+
+    if (is_page('photogallery')) {
+        wp_enqueue_script('lightboxJS', get_template_directory_uri() . '/js/lightbox.min.js', array('jquery'), '2.11.0', true);
+    }
+
+    wp_enqueue_script('scriptsJS', get_template_directory_uri() . '/js/scriptsJS.js', array(), '1.0.0', true);
 }
 //Hook: it indicates that these styles (and also scripts) are enqueued to be used in the front-end
 add_action('wp_enqueue_scripts', 'onemilliongale_scripts_styles');
