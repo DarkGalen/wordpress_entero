@@ -100,6 +100,11 @@ img{
   height: auto;
 }
 
+main{
+  margin-top: 4rem!important;
+  margin-bottom: 4rem!important;
+}
+
 /** HEADER **/
 .site-header{
   background-color: var(--mycolorgrey);
@@ -194,6 +199,7 @@ img{
   background-color: var(--mycolorgrey);
   text-align: center;
   font-weight: bold;
+  overflow: hidden;
 }
 .site-footer p{
   color: white;
@@ -249,6 +255,7 @@ img{
   text-align: center;
 }
 
+.list-blog,
 .list-games{
   display: flex;
   flex-wrap: wrap;
@@ -316,18 +323,21 @@ img{
   }
 }
 
+.post-categories,
 .genre{
   display: flex;
   justify-content: center;
 }
 
 @media (min-width:768px) {
+  .post-categories,
   .genre{
     display: flex;
     justify-content: flex-start;
   }
 }
 
+.post-categories li,
 .genre .genre-i{
   text-transform: uppercase;
   font-family: var(--fontOswald);
@@ -341,9 +351,9 @@ img{
 
 @media (min-width:768px) {
   .card .content{
-    /*position: absolute;
+    position: absolute;
     bottom: 0;
-    left: 0;*/
+    left: 0;
     text-align: left;
     padding: 2rem;
   }
@@ -432,23 +442,23 @@ img{
 }
 
 @media (min-width:768px) {
-    .sidebar-class .game-content h3{
-      color: black;
-      font-size: 1.6rem;
-      transition: all .3s ease;
-    }
-    .sidebar-class:hover h3{
-      color: white;
-    }
+  .sidebar-class .game-content h3{
+    color: black;
+    font-size: 1.6rem;
+    transition: all .3s ease;
+  }
+  .sidebar-class:hover h3{
+    color: white;
+  }
 }
 
 .sidebar-class .game-content p{
   font-weight: bold;
 }
 @media (min-width:768px) {
-    .sidebar-class .game-content p{
-      display: none;
-    }
+  .sidebar-class .game-content p{
+    display: none;
+  }
 }
 
 /** GALLERY **/
@@ -487,4 +497,51 @@ img{
     grid-row: 3 / 5;
     grid-column: 4 / 5;
   }
+}
+
+/** BLOG **/
+.card a{
+  color: white;
+}
+
+.meta{
+  color: black;
+  font-weight: bold;
+}
+
+.meta a{
+  color: var(--mycolorblue);
+}
+
+/** CONTACT **/
+.wpcf7-form label{
+  font-weight: 700;
+}
+
+.wpcf7-form .wpcf7-form-control{
+  width: 100%;
+  padding: 1rem;
+  height: 4rem;
+  border: 1px solid var(--grisOscuro);
+  border-radius: .5rem;
+}
+
+.wpcf7-form .wpcf7-textarea{
+  height: 20rem;
+}
+
+.wpcf7-form .wpcf7-submit{
+  background-color: var(--mycolorblue);
+  font-size: 2rem;
+  font-family: var(--fontOswald);
+  padding: 1.2rem;
+  height: auto;
+  color: white;
+  border: none;
+  transition: .3s all ease;
+}
+
+.wpcf7-form .wpcf7-submit:hover{
+  cursor: pointer;
+  background-color: var(--mycolorbluedark);
 }
