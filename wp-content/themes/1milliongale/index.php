@@ -1,6 +1,7 @@
 <?php get_header(); /*get the header*/ ?>
 <main class="container withsidebar">
     <div class="main-content">
+        <p>indice</p>
         <?php while (have_posts()) {
             the_post(); /*initialise WordPress Loop*/ ?>
             <h1><?php the_title();/*Title of your page */ ?></h1>
