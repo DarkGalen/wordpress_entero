@@ -99,6 +99,13 @@ function onemilliongale_widgets()
         'after_widget' => '</div>',
         'before_title' => '<h3>',
         'after_title' => '</h3>'
+    ));register_sidebar(array(
+        'name' => 'Sidebar 3',
+        'id' => 'sidebar_3',
+        'before_widget' => '<div class="widget">',
+        'after_widget' => '</div>',
+        'before_title' => '<h3>',
+        'after_title' => '</h3>'
     ));
 }
 //Hook: Fires after all default WordPress widgets have been registered
