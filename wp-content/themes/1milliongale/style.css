@@ -351,9 +351,9 @@ main{
 
 @media (min-width:768px) {
   .card .content{
-    position: absolute;
+    /*position: absolute;
     bottom: 0;
-    left: 0;
+    left: 0;*/
     text-align: left;
     padding: 2rem;
   }
