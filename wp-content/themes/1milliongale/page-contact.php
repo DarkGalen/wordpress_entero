@@ -11,22 +11,27 @@ get_header(); // Get the site header
 
         <?php
         if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["submit"])) {
-            // Process the form here
+            // Sanitize the form data
             $name = sanitize_text_field($_POST["name"]);
             $email = sanitize_email($_POST["email"]);
             $message = sanitize_textarea_field($_POST["message"]);
-
-            $to = "your-email@example.com"; // Replace with your email
-            $subject = "New Contact Message from $name";
-            $headers = "From: $email\r\nReply-To: $email\r\nContent-Type: text/plain; charset=UTF-8";
-            $body = "Name: $name\nEmail: $email\nMessage:\n$message";
-
-            if (wp_mail($to, $subject, $body, $headers)) {
-                echo "<p style='color:green;'>Message sent successfully.</p>";
+        
+            // Confirmation email details
+            $subject_to_user = "Thank you for contacting us!";
+            $headers_to_user = "From: no-reply@yourdomain.com\r\nReply-To: no-reply@yourdomain.com\r\nContent-Type: text/plain; charset=UTF-8";
+            $body_to_user = "Hi $name,\n\nThank you for reaching out! We've received your message and will get back to you soon.\n\nHere’s a copy of your message:\n\n$message\n\nBest regards,\nYour Company Name";
+        
+            // Send the confirmation email to the user
+            $user_email_sent = wp_mail($email, $subject_to_user, $body_to_user, $headers_to_user);
+        
+            if ($user_email_sent) {
+                echo "<p style='color:green;'>Message sent successfully. A confirmation email has been sent to your email address.</p>";
             } else {
-                echo "<p style='color:red;'>Error sending message.</p>";
+                echo "<p style='color:red;'>Error sending confirmation email.</p>";
             }
         }
+        
+        
         ?>
 
         <form id="contact-form" method="post" action="">
