@@ -99,7 +99,8 @@ function onemilliongale_widgets()
         'after_widget' => '</div>',
         'before_title' => '<h3>',
         'after_title' => '</h3>'
-    ));register_sidebar(array(
+    ));
+    register_sidebar(array(
         'name' => 'Sidebar 3',
         'id' => 'sidebar_3',
         'before_widget' => '<div class="widget">',
@@ -109,4 +110,27 @@ function onemilliongale_widgets()
     ));
 }
 //Hook: Fires after all default WordPress widgets have been registered
-add_action('widgets_init', 'onemilliongale_widgets'); ?>
+add_action('widgets_init', 'onemilliongale_widgets');
+
+
+
+function loyolagame_main_image()
+{
+    //obtain page id
+    $front_page_id = get_option('page_on_front');
+    //obtain image id
+    $id_image = get_field('image_heading', $front_page_id);
+    //obtain the image
+    $image = wp_get_attachment_image_src($id_image, 'full')[0];
+    //CSS
+    wp_register_style('custom', false);
+    wp_enqueue_style('custom');
+    $image_css = "
+body.home .site-header{
+background-image: linear-gradient(to right,rgba(0,0,0,0.75),rgba
+(0,0,0,0.75)),url($image);
+}
+";
+    wp_add_inline_style('custom', $image_css);
+}
+add_action('init', 'loyolagame_main_image');
