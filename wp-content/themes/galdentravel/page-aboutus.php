@@ -3,16 +3,15 @@
 * Template name: Template for about us
 */
 get_header(); /*get the header*/ ?>
-<main class="container withsidebar">
+<main class="container">
     <div class="main-content">
-        esta es la pagina aboutus.
+        <p> Prueba de que estas en page-aboutus</p>
         <?php while (have_posts()) {
             the_post(); /*initialise WordPress Loop*/ ?>
-            <h1><?php the_title();/*Title of your page */ ?></h1>
-            <?php the_post_thumbnail('blog', array('class' => 'image-class')); /*Image*/ ?>
+            <h1><?php the_title(); /*Title of your page*/ ?></h1>
             <p><?php the_content(); /*Content of your page*/ ?></p>
         <?php } ?>
+        <?php galdentravel_list_guides(10); ?>
     </div>
-    <?php get_sidebar(); ?>
 </main>
 <?php get_footer() /*get the footer*/ ?>

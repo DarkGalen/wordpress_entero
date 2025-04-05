@@ -166,3 +166,99 @@ body .container {
   margin-top: 0;
   text-align: center;
 }
+
+/* Gallery  ------------------------------------------------------------ */
+.gallery-images {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr)); 
+  gap: 1rem;
+  padding: 2rem;
+  justify-items: center;
+  width: 90%;
+  margin: 0 auto 2rem auto;
+  background: linear-gradient(135deg, var(--mycolorblue), var(--mycolorpink));
+  border-radius: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  list-style: none;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .gallery-images {
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  }
+}
+
+.gallery-images img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-images img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Contact  ------------------------------------------------------------ */
+#wpcf7-f106-p29-o1 {
+  display: flex;
+  width: 80%;
+}
+
+.wpcf7-form{
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.wpcf7-form label {
+  font-weight: bold;
+  font-size: 1.6rem;
+  color: var(--mycolorpink);
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.wpcf7-form .wpcf7-form-control {
+  width: 100%;
+  padding: 1.2rem;
+  height: 4.5rem;
+  border: 2px solid var(--mycolorblue);
+  border-radius: 0.8rem;
+  font-size: 1.4rem;
+  font-family: var(--fontOpenSans);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.wpcf7-form .wpcf7-form-control:focus {
+  border-color: var(--mycolorpink);
+  box-shadow: 0 0 8px rgba(175, 33, 255, 0.5);
+  outline: none;
+}
+
+.wpcf7-form .wpcf7-textarea {
+  height: 22rem;
+  resize: none;
+}
+
+.wpcf7-form .wpcf7-submit {
+  background: linear-gradient(135deg, var(--mycolorblue), var(--mycolorpink));
+  font-size: 2rem;
+  font-family: var(--fontOswald);
+  padding: 1.5rem 2rem;
+  color: white;
+  border: none;
+  border-radius: 0.8rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  align-self: center;
+}
+
+.wpcf7-form .wpcf7-submit:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}

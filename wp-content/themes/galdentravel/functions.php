@@ -81,6 +81,60 @@ function galdentravel_list_destinations($n)
 <?php } ?>
 
 
+
+<?php
+function galdentravel_list_guides($n)
+{
+    $args = array(
+        'post_type' => 'guides',
+        'posts_per_page' => $n
+    );
+    $guides = new WP_Query($args);
+?>
+    <ul class="list-guides">
+        <?php while ($guides->have_posts()) {
+            $guides->the_post(); ?>
+            <li class='card'>
+                <?php the_post_thumbnail('thumbnail'); ?>
+                <div class="content">
+                    <a href="<?php the_permalink(); ?>">
+                        <h3><?php the_title(); ?></h3>
+                    </a>
+                    <?php $name = get_field('guide_name'); ?>
+                    <?php $biography = get_field('guide_biography'); ?>
+                    <?php $date = get_field('guide_joining_date'); ?>
+                    <?php $expertise = get_field('guide_expertise_area'); ?>
+                    <p>
+                        <?php
+                        echo "Name: " . esc_html($name) .
+                                " | Biography: " . esc_html($biography) .
+                                " | Date Joined: " . esc_html($date) .
+                                " | Expertise Area: ";
+                            if ($expertise) {
+                                // Si hay valores seleccionados, los mostramos separados por comas
+                                $first = true;
+                                foreach ($expertise as $area) {
+                                    if (!$first) {
+                                        echo ', ';
+                                    }
+                                    echo esc_html($area);
+                                    $first = false;
+                                }
+                            } else {
+                                // Si no hay valores seleccionados
+                                echo 'No se seleccionaron áreas de especialización.';
+                            }
+                        ?>
+                    </p>
+                </div>
+            </li>
+        <?php }
+        wp_reset_postdata(); ?>
+    </ul>
+<?php } ?>
+
+
+
 <?php //Define widgets
 function galdentravel_widgets()
 {
@@ -93,16 +147,16 @@ function galdentravel_widgets()
         'after_title' => '</h3>'
     ));
     register_sidebar(array(
-        'name' => 'Sidebar 2',
-        'id' => 'sidebar_2',
+        'name' => 'Sidebar single destinations',
+        'id' => 'sidebar_single_destinations',
         'before_widget' => '<div class="widget">',
         'after_widget' => '</div>',
         'before_title' => '<h3>',
         'after_title' => '</h3>'
     ));
     register_sidebar(array(
-        'name' => 'Sidebar 3',
-        'id' => 'sidebar_3',
+        'name' => 'Sidebar single guides',
+        'id' => 'sidebar_single_guides',
         'before_widget' => '<div class="widget">',
         'after_widget' => '</div>',
         'before_title' => '<h3>',

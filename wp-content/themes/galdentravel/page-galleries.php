@@ -7,7 +7,7 @@ get_header(); ?>
 
 <main class="container">
   <div class="main-content">
-    Prueba de que estas en page-photogallery
+    Prueba de que estas en page-galleries
     <?php while(have_posts()){ the_post(); ?>
       <h1><?php the_title(); ?></h1>
       <?php
