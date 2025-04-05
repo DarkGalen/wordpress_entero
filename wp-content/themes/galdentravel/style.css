@@ -13,6 +13,10 @@ Text Domain: galdentravel
 
 
 :root {
+  --mycolorletterstealed: #4c4c4c;
+  --mycolorgreystealed: #f5f5f5;
+  --mycoloryellowstealed: #ffd633;
+  --mycolorbluestealed: #005dad;
   --mycolorblue: #00B3C2;
   --mycolorbluedark: #008c99;
   --mycolorpink: #AF21FF;
@@ -26,6 +30,7 @@ html {
   margin: 0 !important;
   font-size: 62.5%;
   box-sizing: border-box;
+  background-color: var(--mycolorgreystealed);
 }
 
 *,
@@ -45,7 +50,7 @@ body {
 
 h1 {
   font-size: clamp(3rem, 8vw, 7rem);
-  color: var(--mycolorpink);
+  color: var(--mycolorbluestealed);
 }
 
 h2 {
@@ -55,16 +60,26 @@ h2 {
 
 h3 {
   font-size: 1.8rem;
-  color: green;
+  color: var(--mycolorbluestealed);
 }
 
 p{
   font-size: 1.5rem;
+  color: var(--mycolorletterstealed)
+}
+
+img{
+  margin-top: 2rem;
 }
 
 /* Header  ------------------------------------------------------------ */
+
+.agency-container h3{
+  color: var(--mycoloryellowstealed)
+}
+
 .navigation-container {
-  background-color: wheat;
+  background-color: var(--mycolorbluestealed);
   white-space: nowrap;
 }
 
@@ -102,11 +117,12 @@ p{
   padding: 0 2rem;
   display: flex;
   align-items: center;
+  color: white;
 }
 
 .main-menu .menu li a:hover {
-  background-color: var(--mycolorbluedark);
-  color: white;
+  background-color: white;
+  color: var(--mycolorbluestealed);
 }
 
 @media (max-width: 768px) {
@@ -116,16 +132,27 @@ p{
 }
 
 /* Footer  ------------------------------------------------------------ */
+.p-container{
+  color: white;
+}
+
 .site-footer {
   background-color: var(--mycolorbluedark);
   color: white;
   text-align: center;
   padding: 1rem 0;
   margin-top: auto;
+  background-color: var(--mycolorbluestealed);
+}
+
+.site-footer p span{
+  color: var(--mycoloryellowstealed);
+  font-weight: bold;
 }
 
 /* Main ------------------------------------------------------------ */
 body .container {
+  background-color: var(--mycolorgreystealed);
 }
 
 .main-content{
@@ -140,7 +167,7 @@ body .container {
   margin: 0;
   align-items: center;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(30rem, 40rem));
+  grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
   gap: 2rem;
   justify-items: center;
   justify-content: center;
@@ -152,6 +179,13 @@ body .container {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: 0 1.4rem 0.8rem rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+  margin-top: 2rem;
 }
 
 .card .content{
@@ -218,7 +252,7 @@ body .container {
 .wpcf7-form label {
   font-weight: bold;
   font-size: 1.6rem;
-  color: var(--mycolorpink);
+  color: var(--mycolorbluestealed);
   margin-bottom: 0.5rem;
   display: block;
 }
@@ -253,12 +287,119 @@ body .container {
   color: white;
   border: none;
   border-radius: 0.8rem;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
   align-self: center;
 }
 
 .wpcf7-form .wpcf7-submit:hover {
   cursor: pointer;
-  transform: scale(1.05);
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Home  ------------------------------------------------------------ */
+.container.nosidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+}
+
+.container.nosidebar .list-blog {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
+  gap: 2rem;
+  width: 100%;
+}
+
+.container.nosidebar .list-blog .card {
+  background-color: rgb(255, 255, 255);
+  border-radius: 1rem;
+  box-shadow: 0 1.4rem 0.8rem rgba(0, 0, 0, 0.2);
+}
+
+.container.nosidebar .list-blog .card .content {
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.container.nosidebar .list-blog .card .content a {
+  text-decoration: none;
+}
+
+.container.nosidebar .list-blog .card .content .meta {
+  font-size: 1.2rem;
+  color: var(--mycolorletterstealed);
+  margin-top: 1rem;
+}
+
+.container.nosidebar .list-blog .card .content .meta a {
+  color: var(--mycolorletterstealed);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.container.nosidebar .list-blog .card .content .meta a:hover {
+  color: var(--mycolorbluestealed);
+}
+
+.container.nosidebar .list-blog .card .content .post-categories {
+  margin-top: 1rem;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.container.nosidebar .list-blog .card .content .post-categories li {
+  font-size: 1.2rem;
+}
+
+.container.nosidebar .list-blog .card .content .post-categories li a {
+  color: var(--mycolorletterstealed);
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.container.nosidebar .list-blog .card .content .post-categories li a:hover {
+  color: var(--mycolorbluestealed);
+}
+
+/* widget  ------------------------------------------------------------ */
+.widget ul{
+  list-style: none;
+  padding: 0 1rem;
+}
+
+.container.withsidebar{
+  display: flex;
+  justify-content: flex-end;
+}
+.container.withsidebar .main-content{
+  margin: 0 auto;
+}
+
+.container.withsidebar .sidebar{
+  width: 20%;
+}
+
+.container.withsidebar .sidebar .widget{
+  text-align: center;
+}
+
+.container.withsidebar .sidebar .widget ul li{
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: 0 1.4rem 0.8rem rgba(0, 0, 0, 0.2);
+}
+
+.container.withsidebar .sidebar .widget ul li p{
+  padding-bottom: 2rem;
+}
+
+.sidebar{
+  
+  /*z-index: 2; /* Adjust the value as needed to bring it to the front */
 }

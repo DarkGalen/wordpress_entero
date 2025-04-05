@@ -1,5 +1,5 @@
 <?php get_header(); /*get the header*/ ?>
-<main class="container withsidebar">
+<main class="container">
     <div class="main-content">
         esta es la pagina por defecto.
         <?php while (have_posts()) {
@@ -9,6 +9,5 @@
             <p><?php the_content(); /*Content of your page*/ ?></p>
         <?php } ?>
     </div>
-    <?php get_sidebar(); ?>
 </main>
 <?php get_footer() /*get the footer*/ ?>

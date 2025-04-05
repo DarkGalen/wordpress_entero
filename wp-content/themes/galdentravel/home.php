@@ -1,7 +1,8 @@
 <?php get_header(); ?>
 <main class="container nosidebar">
+    Prueba de que estas en home.php
+    <h1>Blog</h1>
     <ul class="list-blog">
-        Prueba de que estas en home.php
         <?php while (have_posts()) {
             the_post(); ?>
             <li class="card">

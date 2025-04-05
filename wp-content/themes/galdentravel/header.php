@@ -17,7 +17,7 @@
                 <div class="logo">
                     <?php $path = get_template_directory_uri(); ?>
                     <a href="<?php echo site_url('/'); ?>">
-                        <img src="<?php echo $path ?>/img/logo.png" alt="logo IMG">
+                        <img src="<?php echo $path ?>/img/logo_sin_fondo.png" alt="logo IMG">
                     </a>
                 </div>
                 <div class="agency-container">

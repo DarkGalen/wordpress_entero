@@ -1,5 +1,6 @@
 <?php get_header(); ?>
 <main class="container withsidebar entry">
+    prueba de que estas en single
     <div class="main-content">
         <?php while (have_posts()) {
             the_post(); ?>
