@@ -1,16 +1,16 @@
 <?php
-function onemilliongale_menus()
+function galdentravel_menus()
 {
     register_nav_menus(array(
         // id => __('Name of your menu', 'text domain of your theme')
-        'main-menu' => __('Main menu', 'onemilliongale')
+        'main-menu' => __('Main menu', 'galdentravel')
     ));
 }
 // Hook: it indicates that this function must be activated when WordPress is initialized
-add_action('init', 'onemilliongale_menus');
+add_action('init', 'galdentravel_menus');
 
 // Scripts y Styles
-function onemilliongale_scripts_styles()
+function galdentravel_scripts_styles()
 {
     //Descriptive name, file path, dependences, version
     wp_enqueue_style('googleFont', 'https://fonts.googleapis.com/css?family=Open+Sans|Oswald|PT+Sans&display=swap', array(), '1.0.0');
@@ -27,9 +27,9 @@ function onemilliongale_scripts_styles()
     wp_enqueue_script('scriptsJS', get_template_directory_uri() . '/js/scriptsJS.js', array(), '1.0.0', true);
 }
 //Hook: it indicates that these styles (and also scripts) are enqueued to be used in the front-end
-add_action('wp_enqueue_scripts', 'onemilliongale_scripts_styles');
+add_action('wp_enqueue_scripts', 'galdentravel_scripts_styles');
 
-function onemilliongale_setup()
+function galdentravel_setup()
 {
     add_theme_support('post-thumbnails');
     //Titles SEO
@@ -42,11 +42,11 @@ function onemilliongale_setup()
     add_image_size('blog', '966', '644', true);
 }
 //Hook: it is activated after the theme is configured
-add_action('after_setup_theme', 'onemilliongale_setup');
+add_action('after_setup_theme', 'galdentravel_setup');
 
 
 
-function onemilliongale_list_destinations($n)
+function galdentravel_list_destinations($n)
 {
     $args = array(
         'post_type' => 'destinations',
@@ -58,7 +58,7 @@ function onemilliongale_list_destinations($n)
         <?php while ($destinations->have_posts()) {
             $destinations->the_post(); ?>
             <li class='card'>
-                <?php the_post_thumbnail('square'); ?>
+                <?php the_post_thumbnail('thumbnail'); ?>
                 <div class="content">
                     <a href="<?php the_permalink(); ?>">
                         <h3><?php the_title(); ?></h3>
@@ -82,7 +82,7 @@ function onemilliongale_list_destinations($n)
 
 
 <?php //Define widgets
-function onemilliongale_widgets()
+function galdentravel_widgets()
 {
     register_sidebar(array(
         'name' => 'Sidebar 1',
@@ -110,11 +110,11 @@ function onemilliongale_widgets()
     ));
 }
 //Hook: Fires after all default WordPress widgets have been registered
-add_action('widgets_init', 'onemilliongale_widgets');
+add_action('widgets_init', 'galdentravel_widgets');
 
 
 
-function loyolagame_main_image()
+function galdentravel_main_image()
 {
     //obtain page id
     $front_page_id = get_option('page_on_front');
@@ -133,4 +133,4 @@ background-image: linear-gradient(to right,rgba(0,0,0,0.75),rgba
 ";
     wp_add_inline_style('custom', $image_css);
 }
-add_action('init', 'loyolagame_main_image');
+add_action('init', 'galdentravel_main_image');

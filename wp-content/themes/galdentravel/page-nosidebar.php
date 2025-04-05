@@ -13,7 +13,7 @@
             <p><?php the_content(); /*Content of your page*/ ?></p>
         <?php } ?>
         <?php if (is_page('ourdestinations')) {
-            onemilliongale_list_destinations(10);
+            galdentravel_list_destinations(10);
         } ?>
     </div>
 </main>

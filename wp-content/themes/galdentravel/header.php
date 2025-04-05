@@ -9,9 +9,9 @@
 
 <body>
     <header class="site-header">
-        <div class="agency-container">
-            <h3> Viajes Galeano-Caldentey </h3>
-        </div>
+        <!-- <div class="agency-container">
+            <h3> Galden Travel </h3>
+        </div> -->
         <div class="navigation-container">
             <div class="navigation-bar">
                 <div class="logo">
@@ -19,6 +19,9 @@
                     <a href="<?php echo site_url('/'); ?>">
                         <img src="<?php echo $path ?>/img/logo.png" alt="logo IMG">
                     </a>
+                </div>
+                <div class="agency-container">
+                    <h3> Galden Travel </h3>
                 </div>
                 <div class="mobile-menu">
                     <span></span>

@@ -1,20 +1,20 @@
 <?php
 /*
-Plugin Name: Loyola Games - Widgets
+Plugin Name: Galden Travel - Widgets
 Plugin URI:
-Description: Añade Widgets personalizado al sitio Viajes Galeano-Caldentey
+Description: Añade Widgets personalizado al sitio Galden Travel
 Version: 1.0.0
 Author: Carlos Galeano Torres, Diego Caldentey Largaespada
 Author URI: https://www.uloyola.com
-Text Domain: onemilliongale
+Text Domain: galdentravel
 */
 
 if (!defined('ABSPATH')) die(); //Previene que se vea de forma directa el plugin
 
 /**
- * Adds onemilliongale_videogames widget.
+ * Adds galdentravel_destinations widget.
  */
-class onemilliongale_Destinations_Widget extends WP_Widget
+class galdentravel_Destinations_Widget extends WP_Widget
 {
 
     /**
@@ -23,9 +23,9 @@ class onemilliongale_Destinations_Widget extends WP_Widget
     function __construct()
     {
         parent::__construct(
-            'onemilliongale_widgets', // Base ID
-            esc_html__('Destinations', 'onemilliongale'), // Name
-            array('description' => esc_html__('Agrega los destinos como widget', 'onemilliongale'),) // Args
+            'galdentravel_widgets', // Base ID
+            esc_html__('Destinations', 'galdentravel'), // Name
+            array('description' => esc_html__('Agrega los destinos como widget', 'galdentravel'),) // Args
         );
     }
 
@@ -96,7 +96,7 @@ class onemilliongale_Destinations_Widget extends WP_Widget
      */
     public function form($instance)
     {
-        $cantidad = ! empty($instance['cantidad']) ? $instance['cantidad'] : esc_html__('¿Cuántos destinations deseas mostrar?', 'onemilliongale'); ?>
+        $cantidad = ! empty($instance['cantidad']) ? $instance['cantidad'] : esc_html__('¿Cuántos destinations deseas mostrar?', 'galdentravel'); ?>
         <p>
             <label for="<?php echo esc_attr($this->get_field_id('cantidad')); ?>">
                 <?php esc_attr_e('¿Cuántos destinations deseas mostrar?', 'loyolagames'); ?>
@@ -131,9 +131,9 @@ class onemilliongale_Destinations_Widget extends WP_Widget
 } // class Loyolagames_Videogames_Widget
 
 // register Foo_Widget widget
-function onemilliongale_register_widgets()
+function galdentravel_register_widgets()
 {
-    register_widget('onemilliongale_Destinations_Widget');
+    register_widget('galdentravel_Destinations_Widget');
 }
-add_action('widgets_init', 'onemilliongale_register_widgets');
+add_action('widgets_init', 'galdentravel_register_widgets');
 ?>

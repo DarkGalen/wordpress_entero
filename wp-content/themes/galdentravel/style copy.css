@@ -124,6 +124,25 @@ main{
   }
 }
 
+/*Fixed bar*/
+@media (min-width:768px) {
+    .fixed-top{
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      background-color:  var(--mycolorgrey);
+      padding: 1rem 5rem;
+      height: 14rem;
+      z-index: 10000;
+      transition: all .3s ease;
+    }
+
+    .fixed-top img{
+      width: 12rem;
+    }
+}
+
 @media (min-width:768px) {
   .site-header .navigation-bar .logo{
     flex: 0 0 15%;
@@ -154,6 +173,9 @@ main{
   }
 }
 
+.site-header .main-menu{
+  display: none;
+}
 @media (min-width:768px) {
   .site-header .main-menu{
     display:block;
@@ -351,9 +373,9 @@ main{
 
 @media (min-width:768px) {
   .card .content{
-    /*position: absolute;
+    position: absolute;
     bottom: 0;
-    left: 0;*/
+    left: 0;
     text-align: left;
     padding: 2rem;
   }
@@ -550,7 +572,7 @@ main{
 /*heading*/
 .home .site-header{
   height: auto;
-  min-height: 70rem;
+  max-height: 70rem;
   background-size: cover;
   background-position: top center;
   background-repeat: no-repeat;

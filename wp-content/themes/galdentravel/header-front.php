@@ -5,6 +5,7 @@
   <?php wp_head(); ?>
   <title></title>
 </head>
+header front
 <body <?php body_class(  ); ?>>
   <header class="site-header">
     <div class="container">

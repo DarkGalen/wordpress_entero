@@ -1,0 +1,168 @@
+/*
+Theme Name: Galden Travel
+Theme URI:
+Author: Carlos Galeano Torres, Diego Caldentey Largaespada
+Author URI: https://loyola.com/
+Description: Theme designed to DCE subject
+Version: 1.0
+License: GNU General Public License v3 or later
+License URI: https://www.gnu.org/licenses/gpl-3.0.html
+Tags: Travel, loyola, guides, destinations
+Text Domain: galdentravel
+*/
+
+
+:root {
+  --mycolorblue: #00B3C2;
+  --mycolorbluedark: #008c99;
+  --mycolorpink: #AF21FF;
+  --mycolorgrey: #353535;
+  --fontOpenSans: 'Open Sans', sans-serif;
+  --fontPTSans: 'PT Sans', sans-serif;
+  --fontOswald: 'Oswald', sans-serif;
+}
+
+html {
+  margin: 0 !important;
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  /*box-sizing: inherit;*/
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  font-size: clamp(3rem, 8vw, 7rem);
+  color: var(--mycolorpink);
+}
+
+h2 {
+  font-size: 2rem;
+  color: var(--mycolorblue);
+}
+
+h3 {
+  font-size: 1.8rem;
+  color: green;
+}
+
+p{
+  font-size: 1.5rem;
+}
+
+/* Header  ------------------------------------------------------------ */
+.navigation-container {
+  background-color: wheat;
+  white-space: nowrap;
+}
+
+.logo img {
+  display: flex;
+  width: 5rem;
+  margin: 1rem 0 1rem 1rem;
+}
+
+.navigation-bar {
+  display: flex;
+  align-items: center;
+}
+
+.main-menu {
+  display: flex;
+  flex-grow: 1;
+  align-self: stretch;
+  font-size: 1.5rem;
+}
+
+.main-menu .menu {
+  display: flex;
+  margin: 0;
+  flex-wrap: wrap;
+}
+
+.main-menu .menu li {
+  display: flex;
+}
+
+.main-menu .menu li a {
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+}
+
+.main-menu .menu li a:hover {
+  background-color: var(--mycolorbluedark);
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .main-menu .menu {
+    display: none;
+  }
+}
+
+/* Footer  ------------------------------------------------------------ */
+.site-footer {
+  background-color: var(--mycolorbluedark);
+  color: white;
+  text-align: center;
+  padding: 1rem 0;
+  margin-top: auto;
+}
+
+/* Main ------------------------------------------------------------ */
+body .container {
+}
+
+.main-content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.list-destinations {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(30rem, 40rem));
+  gap: 2rem;
+  justify-items: center;
+  justify-content: center;
+  margin: 2rem 0;
+  width: 80%;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card .content{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card .content p{
+  padding: 0 2rem;
+  margin-bottom: 2rem;
+  margin-top: 0;
+  text-align: center;
+}

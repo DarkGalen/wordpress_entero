@@ -9,7 +9,7 @@ esto es el front-page.php
 <section class="main-games">
     <div class="container">
         <h2>Our games</h2>
-        <?php onemilliongale_list_destinations(4); ?>
+        <?php galdentravel_list_destinations(4); ?>
         <div class="button-container">
             <a href="<?php echo esc_url(get_permalink(get_page_by_title('Games'))); ?>" class="button">See All</a>
         </div>

@@ -4,7 +4,7 @@
         <?php while (have_posts()) {
             the_post(); /*initialise WordPress Loop*/ ?>
             <h1><?php the_title();/*Title of your page */ ?></h1>
-            <?php the_post_thumbnail('blog', array('class' => 'image-class')); /*Image*/ ?>
+            <?php the_post_thumbnail('medium_large', array('class' => 'image-class')); /*Image*/ ?>
             <?php $description = get_field('destination_shortDescription'); ?>
             <?php $price = get_field('destination_price'); ?>
             <?php $itinerary = get_field('destination_itinerary'); ?>

@@ -7,7 +7,7 @@
             <h1><?php the_title(); /*Title of your page*/ ?></h1>
             <p><?php the_content(); /*Content of your page*/ ?></p>
         <?php } ?>
-        <?php onemilliongale_list_destinations(10); ?>
+        <?php galdentravel_list_destinations(10); ?>
     </div>
 </main>
 <?php get_footer() /*get the footer*/ ?>
