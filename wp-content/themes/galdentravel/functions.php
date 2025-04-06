@@ -101,25 +101,28 @@ function galdentravel_list_guides($n)
                         <h3><?php the_title(); ?></h3>
                     </a>
                     <?php $name = get_field('guide_name'); ?>
-                    <?php $biography = get_field('guide_biography'); ?>
-                    <?php $date = get_field('guide_joining_date'); ?>
-                    <?php $expertise = get_field('guide_expertise_area'); ?>
+                    <?php $biography = get_field('biography'); ?>
+                    <?php $date = get_field('join_date'); ?>
+                    <?php $expertise = get_field('area_expertise'); ?>
                     <p>
                         <?php
-                        echo "Name: " . esc_html($name) .
-                                " | Biography: " . esc_html($biography) .
-                                " | Date Joined: " . esc_html($date) .
-                                " | Expertise Area: ";
+                        echo "Name: " . esc_html($name ?? 'No name') .
+                        " | Biography: " . esc_html($biography ?? 'No biography') .
+                        " | Date Joined: " . esc_html($date ?? 'No date') .
+                        " | Expertise Area: ";
+                   
                             if ($expertise) {
                                 // Si hay valores seleccionados, los mostramos separados por comas
+                                $expertise_list = '';
                                 $first = true;
                                 foreach ($expertise as $area) {
                                     if (!$first) {
-                                        echo ', ';
+                                        $expertise_list .= ', ';
                                     }
-                                    echo esc_html($area);
+                                    $expertise_list .= esc_html($area);
                                     $first = false;
                                 }
+                                echo $expertise_list;
                             } else {
                                 // Si no hay valores seleccionados
                                 echo 'No se seleccionaron áreas de especialización.';
