@@ -1,51 +1,26 @@
 <?php get_header('front'); ?>
-esto es el front-page.php
 
 <section class="welcome container">
     <h2><?php the_field('title_welcome'); ?></h2>
     <p><?php the_field('content_welcome'); ?></p>
 </section>
 
-<section class="main-games">
+<section class="main-destinations">
     <div class="container">
-        <h2>Our games</h2>
-        <?php galdentravel_list_destinations(4); ?>
+        <h2>Our destinations</h2>
+        <?php galdentravel_list_destinations(3); ?>
         <div class="button-container">
-            <a href="<?php echo esc_url(get_permalink(get_page_by_title('Games'))); ?>" class="button">See All</a>
+            <a href="<?php echo esc_url(get_permalink(get_page_by_title('Our Destinations'))); ?>" class="button">See All</a>
         </div>
     </div>
 </section>
 
-<section class="sellers">
+<section class="guides">
     <div class="container">
-        <h2> Our sellers </h2>
-        <p>Specialized sellers to support you in the best way</p>
-        <ul class="seller-list">
-            <?php
-            $args = array(
-                'post_type' => 'sellers',
-                'posts_per_page' => 30
-            );
-            $sellers = new WP_Query($args);
-            while ($sellers->have_posts()) {
-                $sellers->the_post(); ?>
-                <li class="seller">
-                    <?php the_post_thumbnail('med'); ?>
-                    <div class="content">
-                        <a href="<?php the_permalink(); ?>">
-                            <h3><?php the_title(); ?></h3>
-                        </a>
-                        <?php the_content(); ?>
-                        <div class="genre">
-                            <?php $esp = get_field('specialization');
-                            foreach ($esp as $e) { ?>
-                                <span class="genre-i"><?php echo esc_html($e); ?></span>
-                            <?php } ?>
-                        </div>
-                    </div>
-                </li>
-            <?php }
-            wp_reset_postdata(); ?>
+        <h2> Our guides </h2>
+        <p>Specialized guides to support you in the best way</p>
+        <ul class="guides-list">
+            <?php galdentravel_list_guides(3); ?>
         </ul>
     </div>
 </section>
