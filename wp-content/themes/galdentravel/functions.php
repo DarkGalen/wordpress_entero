@@ -14,6 +14,8 @@ function galdentravel_scripts_styles()
 {
     //Descriptive name, file path, dependences, version
     wp_enqueue_style('googleFont', 'https://fonts.googleapis.com/css?family=Open+Sans|Oswald|PT+Sans&display=swap', array(), '1.0.0');
+    wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap', false );
+    wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap', false );
     wp_enqueue_style('normalize', get_template_directory_uri() . '/css/normalize.css', array(), '8.0.1');
     if (is_page('photogallery')) {
         wp_enqueue_style('lightboxCSS', get_template_directory_uri() . '/css/lightbox.min.css', array(), '2.11.0');
@@ -101,9 +103,9 @@ function galdentravel_list_guides($n)
                         <h3><?php the_title(); ?></h3>
                     </a>
                     <?php $name = get_field('guide_name'); ?>
-                    <?php $biography = get_field('biography'); ?>
-                    <?php $date = get_field('join_date'); ?>
-                    <?php $expertise = get_field('area_expertise'); ?>
+                    <?php $biography = get_field('guide_biography'); ?>
+                    <?php $date = get_field('guide_joining_date'); ?>
+                    <?php $expertise = get_field('guide_expertise_area'); ?>
                     <p>
                         <?php
                         echo "Name: " . esc_html($name ?? 'No name') .
@@ -171,23 +173,4 @@ add_action('widgets_init', 'galdentravel_widgets');
 
 
 
-function galdentravel_main_image()
-{
-    //obtain page id
-    $front_page_id = get_option('page_on_front');
-    //obtain image id
-    $id_image = get_field('image_heading', $front_page_id);
-    //obtain the image
-    $image = wp_get_attachment_image_src($id_image, 'full')[0];
-    //CSS
-    wp_register_style('custom', false);
-    wp_enqueue_style('custom');
-    $image_css = "
-body.home .site-header{
-background-image: linear-gradient(to right,rgba(0,0,0,0.75),rgba
-(0,0,0,0.75)),url($image);
-}
-";
-    wp_add_inline_style('custom', $image_css);
-}
-add_action('init', 'galdentravel_main_image');
+

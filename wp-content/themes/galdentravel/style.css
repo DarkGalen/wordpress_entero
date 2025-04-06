@@ -21,9 +21,11 @@ Text Domain: galdentravel
   --mycolorbluedark: #008c99;
   --mycolorpink: #AF21FF;
   --mycolorgrey: #353535;
-  --fontOpenSans: 'Open Sans', sans-serif;
+  /*--fontOpenSans: 'Open Sans', sans-serif;
   --fontPTSans: 'PT Sans', sans-serif;
-  --fontOswald: 'Oswald', sans-serif;
+  --fontOswald: 'Oswald', sans-serif;*/
+  --fontPoppins: 'Poppins', sans-serif;
+  --fontPlayFair: 'Playfair Display', serif;
 }
 
 html {
@@ -31,6 +33,7 @@ html {
   font-size: 62.5%;
   box-sizing: border-box;
   background-color: var(--mycolorgreystealed);
+  font-family: var(--fontPoppins);
 }
 
 *,
@@ -46,6 +49,10 @@ body {
   margin: 0;
   display: flex;
   flex-direction: column;
+}
+
+p {
+  font-family: var(--fontPlayFair);
 }
 
 h1 {
@@ -496,6 +503,11 @@ body .container {
   padding: 2rem;
 }
 
+.container.withsidebar .main-content p{
+  width: clamp(40rem, 50vw, 400rem);
+  text-align: center;
+}
+
 .container.withsidebar .sidebar {
   width: 20%;
 }
@@ -625,6 +637,8 @@ body .container {
 
 .welcome.container {
   text-align: center;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
 .site-header {
