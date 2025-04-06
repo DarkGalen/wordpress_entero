@@ -266,6 +266,15 @@ body .container {
 }
 
 /* Contact  ------------------------------------------------------------ */
+.wpcf7-form-control.wpcf7-checkbox.wpcf7-validates-as-required label{
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.privacy{
+  background-color: red;
+}
+
 #wpcf7-f106-p29-o1 {
   display: flex;
   width: 80%;
@@ -783,4 +792,32 @@ body .container {
   text-align: center;
   height: 4rem;
   justify-content: center;
+}
+
+/* Footer  ------------------------------------------------------------ */
+.site-footer .container-logo{
+  /*display: flex;
+  justify-content: center;*/
+}
+
+.site-footer .container-logo .logo{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.site-footer .container-logo .logo img{
+  margin: 0;
+  padding: 0;
+  width: 6rem;
+  height: auto;
+}
+
+.site-footer .container-logo .logo h3{
+  color: var(--mycoloryellowstealed);
+}
+
+.site-footer p{
+  width: 80%;
+  margin: 0 auto;
 }
