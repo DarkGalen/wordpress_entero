@@ -334,13 +334,13 @@ body .container {
 }
 
 .container.nosidebar .list-blog .card .content .meta a {
-  color: var(--mycolorletterstealed);
+  /*color: var(--mycolorletterstealed);*/
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .container.nosidebar .list-blog .card .content .meta a:hover {
-  color: var(--mycolorbluestealed);
+  /*color: var(--mycolorbluestealed);*/
 }
 
 .container.nosidebar .list-blog .card .content .post-categories {
@@ -357,14 +357,14 @@ body .container {
 }
 
 .container.nosidebar .list-blog .card .content .post-categories li a {
-  color: var(--mycolorletterstealed);
+  /*color: var(--mycolorletterstealed);*/
   text-decoration: none;
-  font-weight: bold;
+  /*font-weight: bold;*/
   transition: color 0.3s ease;
 }
 
 .container.nosidebar .list-blog .card .content .post-categories li a:hover {
-  color: var(--mycolorbluestealed);
+  /*color: var(--mycolorbluestealed);*/
 }
 
 /* widget  ------------------------------------------------------------ */
@@ -399,7 +399,75 @@ body .container {
   padding-bottom: 2rem;
 }
 
-.sidebar{
-  
-  /*z-index: 2; /* Adjust the value as needed to bring it to the front */
+.post-content{
+  padding-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.post-content a{
+  text-decoration: none;
+}
+
+.post-categories li{
+  padding-bottom: 1rem;
+}
+
+.list-guides{
+  padding-left: 0;
+  width: 80%;
+}
+
+
+/* About us ------------------------------------------------------------ */
+
+.list-guides .card{
+  margin-bottom: 2rem;
+}
+
+
+/* Header-front ------------------------------------------------------------ */
+.site-header .navigation-bar{
+  background-color: var(--mycolorbluestealed);
+}
+
+.site-header .navigation-bar h3{
+  color: var(--mycoloryellowstealed);
+}
+
+.main-games .container .list-destinations{
+  margin: 0 auto;
+}
+
+.blog.container{
+  text-align: center;
+}
+
+.blog.container .list-blog{
+  padding-left: 0;
+}
+
+.blog.container .list-blog .card{
+  margin: 0 auto;
+  margin-bottom: 2rem;
+  width: 80%;
+}
+
+.main-games {
+  text-align: center;
+}
+
+.welcome.container {
+  text-align: center;
+}
+
+.site-header {
+  text-align: center;
+}
+
+.sellers{
+  text-align: center;
+}
+
+.countdown{
+  text-align: center;
 }

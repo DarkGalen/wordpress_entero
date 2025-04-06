@@ -36,10 +36,10 @@ function galdentravel_setup()
     add_theme_support('title-tag');
     //New sizes
     add_image_size('square', '350', '350', true);
-    add_image_size('portrait', '350', '724', true);
-    add_image_size('boxes', '375', '375', true);
+    add_image_size('portrait', '350', '724', false);
+    add_image_size('boxes', '375', '375', false);
     add_image_size('med', '700', '400', true);
-    add_image_size('blog', '966', '644', true);
+    add_image_size('blog', '966', '644', false);
 }
 //Hook: it is activated after the theme is configured
 add_action('after_setup_theme', 'galdentravel_setup');
@@ -95,7 +95,7 @@ function galdentravel_list_guides($n)
         <?php while ($guides->have_posts()) {
             $guides->the_post(); ?>
             <li class='card'>
-                <?php the_post_thumbnail('thumbnail'); ?>
+                <?php the_post_thumbnail('boxes'); ?>
                 <div class="content">
                     <a href="<?php the_permalink(); ?>">
                         <h3><?php the_title(); ?></h3>
@@ -139,8 +139,8 @@ function galdentravel_list_guides($n)
 function galdentravel_widgets()
 {
     register_sidebar(array(
-        'name' => 'Sidebar 1',
-        'id' => 'sidebar_1',
+        'name' => 'Sidebar single posts',
+        'id' => 'sidebar_single_posts',
         'before_widget' => '<div class="widget">',
         'after_widget' => '</div>',
         'before_title' => '<h3>',

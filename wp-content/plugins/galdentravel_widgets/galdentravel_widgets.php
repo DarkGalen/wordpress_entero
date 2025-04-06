@@ -52,7 +52,7 @@ class galdentravel_Destinations_Widget extends WP_Widget
                 'post_type' => 'destinations',
                 'posts_per_page' => $instance['cantidad'],
                 'orderby' => 'rand',
-                'post__not_in' => array($destino_actual) 
+                'post__not_in' => array($destino_actual)
             );
             $destinations = new WP_Query($args_query);
 
@@ -179,13 +179,13 @@ class galdentravel_guides_Widget extends WP_Widget
         }
     ?>
         <ul>
-        <?php
+            <?php
             $guide_actual = get_the_ID();
             $args_query = array(
                 'post_type' => 'guides',
                 'posts_per_page' => $instance['cantidad'],
                 'orderby' => 'rand',
-                'post__not_in' => array($guide_actual) 
+                'post__not_in' => array($guide_actual)
             );
             $guides = new WP_Query($args_query);
 
@@ -258,7 +258,7 @@ class galdentravel_guides_Widget extends WP_Widget
                 type="number"
                 value="<?php echo esc_attr($cantidad); ?>">
         </p>
-<?php
+    <?php
     }
 
     /**
@@ -286,11 +286,149 @@ class galdentravel_guides_Widget extends WP_Widget
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * Adds galdentravel_posts widget.
+ */
+class galdentravel_posts_Widget extends WP_Widget
+{
+
+    /**
+     * Register widget with WordPress.
+     */
+    function __construct()
+    {
+        parent::__construct(
+            'galdentravel_posts_widgets', // Base ID
+            esc_html__('Posts', 'galdentravel'), // Name
+            array('description' => esc_html__('Agrega los posts como widget', 'galdentravel'),) // Args
+        );
+    }
+
+    /**
+     * Front-end display of widget.
+     *
+     * @see WP_Widget::widget()
+     *
+     * @param array $args     Widget arguments.
+     * @param array $instance Saved values from database.
+     */
+    public function widget($args, $instance)
+    {
+        echo $args['before_widget'];
+        $instance['title'] = "Other posts";
+        if (! empty($instance['title'])) {
+            echo $args['before_title'] . apply_filters('widget_title', $instance['title']) . $args['after_title'];
+        }
+    ?>
+        <ul>
+            <?php
+            $post_actual = get_the_ID();
+            $args_query = array(
+                'post_type' => 'post',
+                'posts_per_page' => $instance['cantidad'],
+                'orderby' => 'rand',
+                'post__not_in' => array($post_actual)
+            );
+            $posts = new WP_Query($args_query);
+
+            while ($posts->have_posts()) {
+                $posts->the_post();
+            ?>
+                <li class="sidebar-class">
+                    <div class="image">
+                        <?php the_post_thumbnail('thumbnail'); ?>
+                    </div>
+                    <div class="post-content">
+                        <a href="<?php the_permalink() ?>">
+                            <h3><?php the_title(); ?></h3>
+                        </a>
+                        <p class="meta">
+                            <a href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>">
+                                <?php echo get_the_author_meta('display_name'); ?>
+                            </a> -
+                            <?php the_time($d = 'd/m/Y'); ?>
+                        </p>
+                        <?php the_category(); ?>
+                </li>
+            <?php }
+            wp_reset_postdata(); ?>
+        </ul>
+
+    <?php
+        echo $args['after_widget'];
+    }
+
+    /**
+     * Back-end widget form.
+     *
+     * @see WP_Widget::form()
+     *
+     * @param array $instance Previously saved values from database.
+     */
+    public function form($instance)
+    {
+        $cantidad = ! empty($instance['cantidad']) ? $instance['cantidad'] : esc_html__('¿Cuántos posts deseas mostrar?', 'galdentravel'); ?>
+        <p>
+            <label for="<?php echo esc_attr($this->get_field_id('cantidad')); ?>">
+                <?php esc_attr_e('¿Cuántos posts deseas mostrar?', 'galdentravel'); ?>
+            </label>
+
+            <input
+                class="widefat"
+                id="<?php echo esc_attr($this->get_field_id('cantidad')); ?>"
+                name="<?php echo esc_attr($this->get_field_name('cantidad')); ?>"
+                type="number"
+                value="<?php echo esc_attr($cantidad); ?>">
+        </p>
+<?php
+    }
+
+    /**
+     * Sanitize widget form values as they are saved.
+     *
+     * @see WP_Widget::update()
+     *
+     * @param array $new_instance Values just sent to be saved.
+     * @param array $old_instance Previously saved values from database.
+     *
+     * @return array Updated safe values to be saved.
+     */
+    public function update($new_instance, $old_instance)
+    {
+        $instance = array();
+        $instance['cantidad'] = (! empty($new_instance['cantidad'])) ? sanitize_text_field($new_instance['cantidad']) : '';
+        return $instance;
+    }
+} // class galdentravel_posts_Widget
+
+
+
+
+
+
+
+
+
+
+
 // register Foo_Widget widget
 function galdentravel_register_widgets()
 {
     register_widget('galdentravel_Destinations_Widget');
     register_widget('galdentravel_guides_Widget');
+    register_widget('galdentravel_posts_Widget');
 }
 add_action('widgets_init', 'galdentravel_register_widgets');
 ?>
